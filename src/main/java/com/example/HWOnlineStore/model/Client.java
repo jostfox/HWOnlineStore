@@ -1,20 +1,25 @@
 package com.example.HWOnlineStore.model;
 
+import java.util.List;
+
 public class Client {
 
     private int id;
     private String firstName;
     private String lastName;
     private String location;
+    private Basket basket = null;
 
-    public Client(int id, String firstName, String lastName, String location) {
+
+    public Client(int id, String firstName, String lastName, String location, Basket basket) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.location = location;
+        this.basket = basket;
     }
 
-    public Client(String firstName, String lastName, String location) {
+    public Client(String firstName, String lastName, String location, Basket basket) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.location = location;
@@ -53,5 +58,13 @@ public class Client {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
     }
 }

@@ -15,7 +15,7 @@ public class GoodsRepositoryImpl implements GoodsRepository {
     private Map<Integer, Good> goodsMap = new HashMap<>();
 
     @PostConstruct
-    public void init(){
+    public void init() {
         goodsMap.put(1, new Good(1, "Laptop Lenovo", 658.23, 5));
         goodsMap.put(2, new Good(2, "RAM Memory 16", 124.15, 10));
         goodsMap.put(3, new Good(3, "Processor AMD Ryzen 5", 321.23, 3));
@@ -38,5 +38,16 @@ public class GoodsRepositoryImpl implements GoodsRepository {
         good.setGoodsId(lastId + 1);
         goodsMap.put(good.getGoodsId(), good);
         return good;
+    }
+
+    public Map<Integer, Good> getGoodsMap() {
+        return goodsMap;
+    }
+
+    @Override
+    public String toString() {
+        return "GoodsRepositoryImpl{" +
+                "goodsMap=" + goodsMap +
+                '}';
     }
 }

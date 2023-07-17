@@ -1,8 +1,9 @@
 package com.example.HWOnlineStore.controller;
 
+import com.example.HWOnlineStore.model.Basket;
 import com.example.HWOnlineStore.model.Client;
 import com.example.HWOnlineStore.service.ClientsService;
-import com.example.HWOnlineStore.service.GoodsService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,16 +16,13 @@ public class ClientsController {
     @Autowired
     ClientsService clientsService;
 
-    @Autowired
-    GoodsService goodsService;
-
     @GetMapping
-    public List <Client> getAllClients(){
+    public List<Client> getAllClients() {
         return clientsService.getAllClients();
     }
 
     @GetMapping("/{id}")
-    public Client getclientsById(@PathVariable (name = "id") int id){
+    public Client getclientsById(@PathVariable(name = "id") int id) {
         return clientsService.getClientById(id);
     }
 
@@ -33,4 +31,8 @@ public class ClientsController {
         return clientsService.newClient(client);
     }
 
+    @PostMapping("/{id}")
+    public Client addToBasket(@PathVariable(name = "id") int id, @RequestBody Basket basket) {
+        return clientsService.addToBasket(id, basket);
+    }
 }

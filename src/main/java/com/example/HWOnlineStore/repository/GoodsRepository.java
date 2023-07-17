@@ -11,5 +11,4 @@ public interface GoodsRepository {
     Good getGoodsById(int id);
 
     Good newGoods(Good good);
-
 }

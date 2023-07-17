@@ -15,17 +15,17 @@ public class GoodsController {
     GoodsService goodsService;
 
     @GetMapping
-    public List<Good> getAllGoods(){
+    public List<Good> getAllGoods() {
         return goodsService.getAllGoods();
     }
 
-    @GetMapping  ("/{id}")
-    public Good getGoodsById (@PathVariable(name = "id") int id){
+    @GetMapping("/{id}")
+    public Good getGoodsById(@PathVariable(name = "id") int id) {
         return goodsService.getGoodsById(id);
     }
 
     @PostMapping
-    public Good newGoods(@RequestBody Good good){
+    public Good newGoods(@RequestBody Good good) {
         return goodsService.newGoods(good);
     }
 }
